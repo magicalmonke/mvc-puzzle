@@ -28,9 +28,9 @@ public class PuzzleController {
         int sqrtSize = (int) Math.sqrt(size);
         int emptyTile = size - 1;
 
-        if (index > 0 && model.getTile(index - 1) == emptyTile) {
+        if (index % sqrtSize != 0 && model.getTile(index - 1) == emptyTile) {
             model.swapTiles(index, index - 1);
-        } else if (index < size - 1 && model.getTile(index + 1) == emptyTile) {
+        } else if ((index + 1) % sqrtSize != 0 && model.getTile(index + 1) == emptyTile) {
             model.swapTiles(index, index + 1);
         } else if (index >= sqrtSize && model.getTile(index - sqrtSize) == emptyTile) {
             model.swapTiles(index, index - sqrtSize);
